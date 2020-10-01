@@ -1,0 +1,121 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "NodeJS Auth API SWAGGER",
+      "description": "Swagger for NodeJS Backend Auth App. \n ## Note : Add Prefix \"Bearer (space)\" on Authorize modal\n"
+    },
+    "host": "localhost:3000",
+    "schemes": [
+      "http"
+    ],
+    "securityDefinitions": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
+    "paths": {
+      "/auth": {
+        "post": {
+          "summary": "GET TOKEN",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "The phone and  to create.",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "phone",
+                  "password"
+                ],
+                "properties": {
+                  "phone": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Will send `Token`"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/user": {
+        "post": {
+          "summary": "CREATE USER",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "user",
+              "description": "The user to create.",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "phone",
+                  "name",
+                  "role"
+                ],
+                "properties": {
+                  "phone": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/api/v1/user": {
+        "get": {
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Will send `Authenticated`"
+            },
+            "403": {
+              "description": "You do not have necessary permissions for the resource"
+            }
+          }
+        }
+      }
+    }
+  }

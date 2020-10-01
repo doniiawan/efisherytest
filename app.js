@@ -5,9 +5,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const swaggerUi = require('swagger-ui-express'), swaggerDocument = require('./swagger.json');
 
 
 var app = express();
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -16,6 +18,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/api'));
+
+// SWAGGER
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(function (req, res, next) {
   next(createError(404));
