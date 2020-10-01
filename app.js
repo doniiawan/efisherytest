@@ -28,10 +28,9 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.status(404).json( {code: 404, message: 'Route not found!'});
 });
 
 console.log('APP RUNNING ON PORT : ' + process.env.PORT);
-
 
 module.exports = app;
