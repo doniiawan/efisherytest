@@ -15,6 +15,9 @@ npm install
 npm start
 ```
 
+**Swagger Documentation :**
+http://localhost:3000/api-docs
+
 
 ## Python Backend Fetching App
 
@@ -29,3 +32,10 @@ pip install -r requirements.txt
 export FLASK_APP = api.py
 flask run
 ```
+
+**Swagger Documentation :**
+http://localhost:5000/api-docs
+
+
+## System Diagram
+![System Diagram](/system.png)
