@@ -7,7 +7,7 @@ Theres two projects inside this repo
 
 ### Installation
 ```zsh
-cd nodebe && cp .env.backup .env
+$ cd nodebe && cp .env.backup .env
 ```
 
 ```javascript
@@ -23,14 +23,15 @@ http://localhost:3000/api-docs
 
 ### Installation
 ```bash
-cd pybe
+$ cd pythonbe
 ```
 
 ```zsh
-python3 -m venv venv  
-pip install -r requirements.txt
-export FLASK_APP = api.py
-flask run
+$ python3 -m venv venv  
+$ . venv/bin/activate
+$ pip install -r requirements.txt
+$ export FLASK_APP=api.py
+$ flask run
 ```
 
 **Swagger Documentation :**
@@ -38,4 +39,4 @@ http://localhost:5000/api-docs
 
 
 ## System Diagram
-![System Diagram](/system.png)
+![System Diagram](/System.png)
