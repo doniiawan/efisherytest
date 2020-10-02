@@ -1,0 +1,139 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "NodeJS Auth API SWAGGER",
+      "description": "Swagger for NodeJS Backend Auth App. \n ## Note : Add Prefix \"Bearer (space)\" on Authorize modal\n"
+    },
+    "host": "localhost:3000",
+    "schemes": [
+      "http"
+    ],
+    "securityDefinitions": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
+    "tags": [
+      {
+        "name": "auth"
+      },
+      {
+        "name": "user"
+      }
+    ],
+    "paths": {
+      "/auth": {
+        "post": {
+          "summary": "GET TOKEN",
+          "tags": [
+            "auth"
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "The phone and  to create.",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "phone",
+                  "password"
+                ],
+                "properties": {
+                  "phone": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Will send `Token`"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/user": {
+        "post": {
+          "summary": "CREATE USER",
+          "tags": [
+            "user"
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "user",
+              "description": "The user to create.",
+              "schema": {
+                "type": "object",
+                "required": [
+                  "phone",
+                  "name",
+                  "role"
+                ],
+                "properties": {
+                  "phone": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/api/v1/user": {
+        "get": {
+          "summary": "GET USER CLAIMS",
+          "tags": [
+            "user"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Will send `JWT Claims`"
+            },
+            "401": {
+              "description": "Unauthorized"
+            }
+          }
+        }
+      }
+    }
+  }
