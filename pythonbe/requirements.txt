@@ -1,0 +1,5 @@
+Flask
+requests
+requests_cache
+pyjwt
+flask_swagger_ui
