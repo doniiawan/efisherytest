@@ -38,4 +38,4 @@ http://localhost:5000/api-docs
 
 
 ## System Diagram
-![System Diagram](/system.png)
+![System Diagram](/System.png)
