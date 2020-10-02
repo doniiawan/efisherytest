@@ -1,0 +1,91 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Python Fetch API SWAGGER",
+    "description": "Swagger for NodeJS Backend Auth App. \n ## Note : Add Prefix \"Bearer (space)\" on Authorize modal\n"
+  },
+  "host": "localhost:5000",
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "tags": [
+    {
+      "name": "commodity"
+    },
+    {
+      "name": "user"
+    }
+  ],
+  "paths": {
+    "/commodity": {
+      "get": {
+        "summary": "GET COMMODITY LIST",
+        "tags": [
+          "commodity"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "area_provinsi",
+            "description": "Area Provinsi",
+            "schema": {
+              "type": "string",
+              "example": "SUMATERA BARAT"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Will send `Commodity Data`"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "summary": "GET USER CLAIMS",
+        "tags": [
+          "user"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Will send `JWT Claims`"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    }
+  }
+}
